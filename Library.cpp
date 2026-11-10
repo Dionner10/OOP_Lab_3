@@ -7,7 +7,7 @@ Library::Library() {
     bookCount = 0;
 }
 
-void Library::addBook(string t, string a, string p, int y) {
+void Library::addBook(string t, string a, string p, int y, int pg) {
     if (bookCount >= 100) {
         throw "Бібліотека переповнена! Неможливо додати більше книг.";
     }
@@ -50,6 +50,7 @@ Library& Library::operator-(int removeAmount) {
 }
 
 // Пошук одразу по трьох текстових полях
+/*
 void Library::search(string text) const {
     cout << "Пошук за текстом '" << text << "'\n";
     bool found = false;
@@ -75,4 +76,16 @@ void Library::search(int year) const {
         }
     }
     if (!found) cout << "Нічого не знайдено.\n";
+}
+*/
+Book * Library::search(int year, int minPages) const {
+    Book * result = new Book[10];
+    int resultIndex = 0;
+    for (int i = 0; i < bookCount; i++) {
+        if (books[i].year == year && books[i].pages > minPages) {
+            result[resultIndex] = books[i];
+            resultIndex++;
+        }
+    }
+    return result;
 }

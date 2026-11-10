@@ -7,20 +7,21 @@ int main() {
     Library myLib;
 
     try {
-        myLib.addBook("Кобзар", "Тарас Шевченко", "Основа", 1840);
-        myLib.addBook("Тигролови", "Іван Багряний", "Прометей", 1944);
-        myLib.addBook("Тіні забутих предків", "Михайло Коцюбинський", "Час", 1911);
+        myLib.addBook("Кобзар", "Тарас Шевченко", "Основа", 1840, 200);
+        myLib.addBook("Тигролови", "Іван Багряний", "Прометей", 1944, 150);
+        myLib.addBook("Тіні забутих предків", "Михайло Коцюбинський", "Час", 1911, 300);
 
-        myLib.addBook("Помилкова Книга", "Автор", "Видавництво", 0);
+        myLib.addBook("Помилкова Книга", "Автор", "Видавництво", 0, 250);
     }
     catch (const char* msg) {
         cout << ">> Помилка: " << msg << "\n";
     }
 
-    myLib.search("Іван Багряний");
-    myLib.search("Кобзар");
-    myLib.search("Час");
-    myLib.search(1840);
+    // myLib.search("Іван Багряний");
+    // myLib.search("Кобзар");
+    // myLib.search("Час");
+    // myLib.search(1840);
+    cout << myLib.search(1840, 600);
 
     try {
         cout << "Зараз книг: " << myLib.getBookCount() << "\n";
